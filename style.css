@@ -32,7 +32,6 @@ body {
   height: 3.45rem;
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; /* SHADOW #27 */
-  
 }
 
 #menu > hr {
@@ -43,7 +42,7 @@ body {
   background: radial-gradient(rgba(218, 218, 218, 0.9), rgba(233, 233, 233, 0));
 }
 
-#menu > input{
+#menu > input {
   width: 200px;
   height: 30px;
   border-radius: 5px;
@@ -53,7 +52,7 @@ body {
 
 #menu > input:focus {
   outline: none;
-    border: 2px solid rgb(9, 230, 138);
+  border: 2px solid rgb(9, 230, 138);
 }
 
 #menu > button {
@@ -131,7 +130,7 @@ body {
   color: white;
 }
 
-.list-items {
+.list-items-container {
   height: 540px;
   width: 100%;
   padding: 15px;
@@ -144,4 +143,45 @@ body {
   height: 60px;
   width: inherit;
   border-top: 1px solid rgb(233, 233, 233);
+}
+
+.list-content {
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 7px;
+}
+
+.checkbox-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-content > div > hr {
+  height: 1.5rem;
+  width: 1px;
+  margin: 0 10px;
+  border: 0;
+  background: radial-gradient(rgba(218, 218, 218, 0.9), rgba(233, 233, 233, 0));
+}
+
+.list-item-text {
+  max-height: 2.5rem;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: 0.5s ease height;
+}
+
+.expand {
+  max-height: 6.25rem;
+  overflow: hidden;
+  text-overflow: unset;
+  white-space: unset;
 }
