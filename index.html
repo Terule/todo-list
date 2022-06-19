@@ -8,36 +8,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
 
   <!-- STYLE IMPORT -->
   <link rel="stylesheet" href="style.css">
 
-  <title>Document</title>
+  <title>TO-DO Lists</title>
 </head>
 <body>
-  <section id="menu-container">
-    <div id="menu">
+    <section id="menu">
       <input type="text" id="input-new-list" placeholder="Name of the new list" maxlength="22">
       <hr>
       <button id="button-new-list" >Create list</button>
-    </div>
-  </section>
-  <section id='list-container'>
-    <div class='list-card'>
-      <div class="list-title">
-        <h1 class="list-name">COMPRAS</h1>
-        <div class="icon trash">
-          <i data-feather="trash-2" width="20"></i>
-        </div>
-      </div>
-
-      <div class="list-items">sdsdsd</div>
-      <div class="menu-plus">
-        <div class="icon plus">
-          <i data-feather="plus" width="24"></i>
-        </div>
-      </div>
     </section>
+    <div class="swiper">
+    <section id='list-container' class="swiper-wrapper">
+    </section>
+    <div class="swiper-pagination"></div>
+    </div>
+    
+    <div id="add-task-window" class="">
+      <div class="add-task-window-header">
+        <h2>ADICIONAR TAREFA</h2>
+        <button id="close-add-task-window"><i data-feather="x" width="20"></i></button>
+      </div>
+      <div class="add-task-window-input">
+        <input type="text" id="task-name">
+        <button id="add-task-window-button"><i data-feather="save" width="20"></i></button>
+      </div>
+    </div>
+    <div id="add-task-window-bg" class=""></div>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="script.js"></script>
   <script>
