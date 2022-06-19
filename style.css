@@ -7,18 +7,11 @@
 
 body {
   display: flex;
+  width: 100vw;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(to right, rgb(9, 230, 138), rgb(12, 217, 231));
-}
-
-#menu-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin-top: 20px;
 }
 
 #menu {
@@ -29,7 +22,7 @@ body {
   border-radius: 5px;
   width: 350px;
   height: 3.45rem;
-  margin: 20px;
+  margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; /* SHADOW #27 */
 }
 
@@ -73,20 +66,37 @@ body {
 
 #list-container {
   display: flex;
-  width: 390px;
+  width: 350px;
 }
 
 .list-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 390px;
+  width: 21.8rem;
   height: 650px;
   margin: 20px 20px 0 0;
   background-color: white;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; /* SHADOW #29 */
+  transition: height 0.5s ease-in-out;
 }
+
+/* .colapse {
+  height: 60px;
+}
+.colapse .list-title hr{
+  display: none;
+
+}
+
+.colapse .list-items-container {
+  display: none;
+}
+
+.colapse .menu-plus {
+  display: none;
+} */
 
 .list-title {
   display: flex;
@@ -138,6 +148,11 @@ body {
   height: 540px;
   width: 100%;
   padding: 15px;
+  overflow-y: scroll;
+}
+
+.list-items-container::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-plus {
@@ -151,42 +166,130 @@ body {
 
 .list-content {
   margin-bottom: 10px;
-  padding: 10px;
+  height: 2.7rem;
   display: flex;
+  padding: 10px;
   align-items: center;
-  justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 7px;
+  transition: height 400ms ease-in-out;
 }
 
 .checkbox-container {
+  height: inherit;
+  width: fit-content;
+  margin-right: 10px;
   display: flex;
-  align-self: start;
-  height: 100%;
   align-items: center;
-  justify-content: space-between;
 }
 
-.list-content > div > hr {
-  height: 1.5rem;
+.checkbox-container > hr {
+  height: 80%;
   width: 1px;
-  margin: 0 10px;
-  border: 0;
+  border: none;
+  margin-left: 10px;
   background: radial-gradient(rgba(218, 218, 218, 0.9), rgba(233, 233, 233, 0));
 }
 
 .list-item-text {
-  max-height: 2.5rem;
-  padding: 5px;
+  height: inherit;
+  width: auto;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: 0.5s ease height;
+  padding-top: 11.5px;
 }
 
-.expand {
-  max-height: 6.25rem;
-  overflow: hidden;
-  text-overflow: unset;
-  white-space: unset;
+.error {
+  border: 2px solid red !important;
+}
+
+.error::placeholder {
+  color: red;
+}
+
+#add-task-window {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  width: 300px;
+  height: 120px;
+  justify-content: space-between;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  z-index: 200;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#add-task-window.open {
+  display: flex;
+}
+
+#add-task-window > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-task-window > div > #close-add-task-window {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(245, 75, 75);
+  border: 2px solid rgb(245, 75, 75);
+  cursor: pointer;
+}
+
+#add-task-window > div > #close-add-task-window:hover {
+  color: white;
+  background-color: rgb(245, 75, 75);
+}
+
+#add-task-window > div > #add-task-window-button {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(75, 149, 245);
+  border: 2px solid rgb(75, 149, 245);
+  cursor: pointer;
+}
+
+#add-task-window > div > #add-task-window-button:hover {
+  color: white;
+  background-color: rgb(75, 149, 245);
+}
+
+#add-task-window > div > input {
+  width: 200px;
+}
+
+#add-task-window-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgb(59, 59, 59);
+  opacity: 0.9;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#add-task-window-bg.open {
+  display: block !important;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(175, 175, 175);
 }
