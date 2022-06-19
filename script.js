@@ -6,8 +6,22 @@ const addTaskButton = document.getElementById('add-task-window-button')
 const addTaskInput = document.getElementById('task-name')
 const addTaskWindowBg = document.getElementById('add-task-window-bg')
 const addTaskWindow = document.getElementById('add-task-window')
+const swiperContainer = document.querySelector('.swiper')
 
 const validadeInput  = () => listNameInput.value.trim().length >0
+
+var swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
+  spaceBetween: 20,
+  centeredSlides: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+});
 
 class List {
   constructor(listContainer) {
@@ -17,8 +31,10 @@ class List {
   createList(listName) {
     const _newList = document.createElement('div')
     _newList.classList.add('list-card')
+    _newList.classList.add('swiper-slide')
     this.populateList(_newList, listName)
-    this.listContainer.appendChild(_newList)
+    swiper.appendSlide(_newList)
+    // this.listContainer.appendChild(_newList)
   }
 
   populateList(_newList, listName){
@@ -56,7 +72,7 @@ class List {
     _listButtonDelete.dataset.feather = 'trash-2'
     _listButtonDelete.setAttribute('width', 20)
     _listButtonDeleteContainer.addEventListener('click', () => {
-      _newList.remove()
+      swiper.removeSlide(_newList.remove())
     })
     _listButtonDeleteContainer.appendChild(_listButtonDelete)
     parent.appendChild(_listButtonDeleteContainer)
@@ -137,6 +153,8 @@ buttonAddList.addEventListener('click', () => {
     return listNameInput.classList.add('error')
   }
   list.createList(listNameInput.value)
+  swiperContainer.classList.remove('swiper')
+  swiperContainer.classList.add('swiper')
   listNameInput.value = ''
   feather.replace()
 });
@@ -160,3 +178,4 @@ addTaskButton.addEventListener('click',() =>{
   addTaskWindowBg.classList.remove('open')
   addTaskInput.value = ''
 })
+

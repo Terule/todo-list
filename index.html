@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
 
   <!-- STYLE IMPORT -->
   <link rel="stylesheet" href="style.css">
@@ -20,8 +24,12 @@
       <hr>
       <button id="button-new-list" >Create list</button>
     </section>
-  <section id='list-container'>
+    <div class="swiper">
+    <section id='list-container' class="swiper-wrapper">
     </section>
+    <div class="swiper-pagination"></div>
+    </div>
+    
     <div id="add-task-window" class="">
       <div class="add-task-window-header">
         <h2>ADICIONAR TAREFA</h2>
@@ -33,6 +41,7 @@
       </div>
     </div>
     <div id="add-task-window-bg" class=""></div>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="script.js"></script>
   <script>
