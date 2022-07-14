@@ -47,9 +47,6 @@ class List {
     const _listHeader = document.createElement('header')
 
     _listHeader.classList.add('list-title')
-    _listHeader.addEventListener('dblclick', () => {
-      _newList.classList.toggle('colapse')
-    })
     this.createHeaderTitle(listName, _listHeader)
     this.createButtonDeleteList(_listHeader, _newList)
     _newList.appendChild(_listHeader)
